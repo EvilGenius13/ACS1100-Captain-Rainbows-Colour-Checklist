@@ -1,6 +1,4 @@
-from contextlib import redirect_stderr
 import random
-from xml.etree.ElementPath import get_parent_map
 
 def create(item):
     checklist.append(item)
@@ -15,7 +13,7 @@ def destroy(index):
     checklist.pop(index)
 
 def markCompleted(index):
-    print(f"{index} : {checklist[index]} √")
+     checklist[index] = ('{} {}'.format(checkmark, checklist[index]))
 
 def listAllItems():
     if(len(checklist) > 0):
@@ -51,8 +49,12 @@ def select(function_code):
         listAllItems()
     elif(function_code == "X"):
         pick_for_me()
+    elif(function_code == "D"):
+        index = input("Index number of item to delete: ")
+        index = int(index)
+        destroy(index)
     elif(function_code == "HELP"):
-        print("A: Add item\nR: Read Item\nM: Mark as complete\nU: replace an item\nP: Print full list\nX: Pick my outfit for me!\nHELP: See all options\nQ: Quit")
+        print("A: Add item\nR: Read Item\nM: Mark as complete\nU: replace an item\nP: Print full list\nX: Pick my outfit for me!\nD: Delete item\nHELP: See all options\nQ: Quit")
     elif(function_code == "Q"):
         return False
     else:
@@ -65,11 +67,13 @@ def app_state():
         running = select(input(f"{green}What do you want to do? Type help for all options.{blue}: ").upper())
 
 
-yellow = '\033[1;92m' 
+yellow = '\033[0;93m'
 blue = '\033[1;94m'   
 green = '\033[1;92m' 
 red = '\033[1;91m'
 checklist = []
+checkmark = u'\u2713'
 clothing = ('Shoes', 'Shirt', 'Pants', 'Hat', 'Socks', 'Underwear', 'Sweater')
 colours = ('Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Indigo', 'Violet')
 app_state()
+
