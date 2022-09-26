@@ -1,5 +1,14 @@
 import random
 
+yellow = '\033[0;93m'
+blue = '\033[1;94m'   
+green = '\033[1;92m' 
+red = '\033[1;91m'
+checklist = []
+checkmark = u'\u2713'
+clothing = ('Shoes', 'Shirt', 'Pants', 'Hat', 'Socks', 'Underwear', 'Sweater')
+colours = ('Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Indigo', 'Violet')
+
 def create(item):
     checklist.append(item)
 
@@ -67,13 +76,6 @@ def app_state():
         running = select(input(f"{green}What do you want to do? Type help for all options.{blue}: ").upper())
 
 
-yellow = '\033[0;93m'
-blue = '\033[1;94m'   
-green = '\033[1;92m' 
-red = '\033[1;91m'
-checklist = []
-checkmark = u'\u2713'
-clothing = ('Shoes', 'Shirt', 'Pants', 'Hat', 'Socks', 'Underwear', 'Sweater')
-colours = ('Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Indigo', 'Violet')
+
 app_state()
 
